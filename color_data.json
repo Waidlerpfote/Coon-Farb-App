@@ -1,0 +1,72 @@
+{
+    "Solid Black": {
+        "simple_name": "Black",
+        "genetic_code": "B/B",
+        "description": "Solid black coat without any pattern."
+    },
+    "Blue": {
+        "simple_name": "Blue",
+        "genetic_code": "d/d",
+        "description": "Diluted black resulting in a blue (grey) coat."
+    },
+    "Black Tabby": {
+        "simple_name": "Tabby (Black)",
+        "genetic_code": "B/B, T/T",
+        "description": "Black tabby pattern with distinct stripes."
+    },
+    "Blue Tabby": {
+        "simple_name": "Tabby (Blue)",
+        "genetic_code": "d/d, T/T",
+        "description": "Blue tabby pattern with diluted black stripes."
+    },
+    "Black Smoke": {
+        "simple_name": "Smoke (Black)",
+        "genetic_code": "B/B, I/i",
+        "description": "Black coat with silver undercoat giving a smoke effect."
+    },
+    "Blue Smoke": {
+        "simple_name": "Smoke (Blue)",
+        "genetic_code": "d/d, I/i",
+        "description": "Blue coat with silver undercoat, creating a blue smoke effect."
+    },
+    "Red": {
+        "simple_name": "Red",
+        "genetic_code": "O/O",
+        "description": "Solid red coat, also known as orange or ginger."
+    },
+    "Cream": {
+        "simple_name": "Cream",
+        "genetic_code": "O/O, d/d",
+        "description": "Diluted red coat resulting in a cream color."
+    },
+    "Red Tabby": {
+        "simple_name": "Tabby (Red)",
+        "genetic_code": "O/O, T/T",
+        "description": "Red coat with tabby striping pattern."
+    },
+    "Cream Tabby": {
+        "simple_name": "Tabby (Cream)",
+        "genetic_code": "O/O, d/d, T/T",
+        "description": "Cream coat with tabby striping pattern."
+    },
+    "Tortoiseshell": {
+        "simple_name": "Tortie",
+        "genetic_code": "O/o",
+        "description": "Black and red mixed coat with patches of each color."
+    },
+    "Blue-Cream": {
+        "simple_name": "Blue-Cream Tortie",
+        "genetic_code": "O/o, d/d",
+        "description": "Diluted tortoiseshell coat with blue and cream patches."
+    },
+    "Silver Tabby": {
+        "simple_name": "Silver Tabby",
+        "genetic_code": "B/B, T/T, I/I",
+        "description": "Black tabby pattern with a silver undercoat."
+    },
+    "Brown Tabby": {
+        "simple_name": "Brown Tabby",
+        "genetic_code": "B/B, T/T",
+        "description": "Classic brown tabby pattern with black stripes."
+    }
+}
