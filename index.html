@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maine Coon Farb- und Musterrechner</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .selection, .results {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #666;
+        }
+        .result-item {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #555;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maine Coon Farb- und Musterrechner</h1>
+    <p>Wählen Sie die Farben und Muster der Eltern, um mögliche Kitten-Farben zu berechnen.</p>
+
+    <div class="selection">
+        <label for="parent1">Farbe und Muster von Elternteil 1:</label>
+        <select id="parent1"></select>
+        
+        <label for="parent2">Farbe und Muster von Elternteil 2:</label>
+        <select id="parent2"></select>
+        
+        <button class="button" onclick="calculateKittenColors()">Berechne mögliche Kitten-Farben</button>
+    </div>
+
+    <div class="results" id="results">
+        <h2>Mögliche Kitten-Farben und Muster:</h2>
+        <!-- Ergebnisse werden hier angezeigt -->
+    </div>
+
+    <script>
+        let colorData = {};
+
+        // Load color data from JSON file
+        fetch('color_data.json')
+            .then(response => response.json())
+            .then(data => {
+                colorData = data;
+                populateSelectOptions();
+            })
+            .catch(error => console.error("Fehler beim Laden der JSON-Daten:", error));
+
+        // Populate selection dropdowns with color options
+        function populateSelectOptions() {
+            const parent1Select = document.getElementById('parent1');
+            const parent2Select = document.getElementById('parent2');
+
+            for (const color in colorData) {
+                const option1 = document.createElement('option');
+                const option2 = document.createElement('option');
+                option1.value = color;
+                option2.value = color;
+                option1.textContent = `${colorData[color].simple_name} (${color})`;
+                option2.textContent = `${colorData[color].simple_name} (${color})`;
+                parent1Select.appendChild(option1);
+                parent2Select.appendChild(option2);
+            }
+        }
+
+        // Calculate potential kitten colors based on selected parents
+        function calculateKittenColors() {
+            const parent1 = document.getElementById('parent1').value;
+            const parent2 = document.getElementById('parent2').value;
+            const resultsDiv = document.getElementById('results');
+
+            resultsDiv.innerHTML = '<h2>Mögliche Kitten-Farben und Muster:</h2>';
+
+            if (!parent1 || !parent2) {
+                resultsDiv.innerHTML += '<p>Bitte wählen Sie beide Elternteile aus.</p>';
+                return;
+            }
+
+            // Basic genetic prediction logic (simplified)
+            const possibleColors = [colorData[parent1], colorData[parent2]];
+            possibleColors.forEach(color => {
+                const resultItem = document.createElement('div');
+                resultItem.classList.add('result-item');
+                resultItem.innerHTML = `<strong>${color.simple_name}:</strong> ${color.description} - Genetischer Code: ${color.genetic_code}`;
+                resultsDiv.appendChild(resultItem);
+            });
+        }
+    </script>
+</body>
+</html>
